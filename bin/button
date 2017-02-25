@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 require "bundler/setup"
 $LOAD_PATH.unshift File.join(__FILE__, '../../lib')
-require "maker"
+require "cli"
 
 begin
-  Maker::CLI.start
+  CLI.start
 rescue Interrupt, EOFError
   # Ctrl-C or Ctrl-D ==> bye bye!
   puts
