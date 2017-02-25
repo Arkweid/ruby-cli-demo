@@ -25,4 +25,11 @@ class Settings
   rescue Errno::ENOENT
     # Don't worry if file is not there
   end
+
+  def save
+    File.open(filename, 'w') do |f|
+      file_content = YAML.dump @values
+      f.write file_content
+    end
+  end
 end
