@@ -3,4 +3,9 @@ source "https://rubygems.org"
 
 gem "thor"
 gem "tty-prompt"
-gem "aruba"
+gem "particlerb"
+
+group :test do
+  gem "rspec"
+  gem "aruba"
+end
