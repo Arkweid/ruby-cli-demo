@@ -18,7 +18,7 @@ RSpec.describe Commands::Configure do
   describe "#ask_login" do
     it "sets email and password" do
       expect(ui).to receive(:ask).with("What's your Particle email?", required: true).and_return("me@example.com")
-      expect(ui).to receive(:ask).with("What's your Particle password?", mask: true).and_return("password")
+      expect(ui).to receive(:ask).with("What's your Particle password?", password: true).and_return("password")
 
       subject.ask_login
 

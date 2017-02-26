@@ -1,4 +1,5 @@
 require "tty-prompt"
+require "tty-spinner"
 
 class UI
   def say(message)
@@ -16,6 +17,10 @@ class UI
   def with_spinner(&block)
     s = TTY::Spinner.new
     s.run(&block)
+  end
+
+  def select(question, items)
+    prompt.select(question, items)
   end
 
   private

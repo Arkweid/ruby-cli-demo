@@ -5,6 +5,7 @@ gem "thor"
 gem "tty-prompt"
 gem "tty-spinner"
 gem "particlerb"
+gem "color"
 
 group :test do
   gem "rspec"

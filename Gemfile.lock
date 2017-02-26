@@ -11,6 +11,7 @@ GEM
     builder (3.2.3)
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
+    color (1.8)
     contracts (0.15.0)
     cucumber (2.4.0)
       builder (>= 2.1.2)
@@ -71,6 +72,7 @@ PLATFORMS
 
 DEPENDENCIES
   aruba
+  color
   particlerb
   rspec
   thor

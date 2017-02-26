@@ -1,16 +1,10 @@
 require "settings"
+require "commands/base"
 require "ui"
 require "particlerb"
 
 module Commands
-  class Configure
-    def initialize(settings: Settings.new, ui: UI.new, api: Particle)
-      @settings = settings
-      @ui = ui
-      @api = api
-    end
-    attr_reader :settings, :ui, :api
-
+  class Configure < Base
     attr_accessor :email, :password, :devices, :device_name
 
     def run
@@ -31,7 +25,7 @@ module Commands
 
     def ask_login
       self.email = ui.ask "What's your Particle email?", required: true
-      self.password = ui.ask "What's your Particle password?", mask: true
+      self.password = ui.ask "What's your Particle password?", password: true
     end
 
     def perform_login

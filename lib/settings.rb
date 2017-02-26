@@ -28,7 +28,7 @@ class Settings
   end
 
   def save
-    File.open(filename, "w") do |f|
+    File.open(File.expand_path(filename), "w+") do |f|
       file_content = YAML.dump @values
       f.write file_content
     end
