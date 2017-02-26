@@ -59,34 +59,34 @@ RSpec.describe Commands::Color do
   describe "#color_hex_from_name" do
     it "returns the HTML value" do
       color = "red"
-      hex = "ff0000"
+      hex = "#ff0000"
       expect(subject.color_hex_from_name(color)).to eq hex
     end
 
     it "returns a default value for an unknown color" do
       color = "blarg"
-      hex = "ffffff"
+      hex = "#ffffff"
       expect(subject.color_hex_from_name(color)).to eq hex
     end
   end
 
   describe "#convert_color_to_hex" do
     it "sets the hex color" do
-      expect(subject).to receive(:color_hex_from_name).with("blue").and_return("0000ff")
+      expect(subject).to receive(:color_hex_from_name).with("blue").and_return("#0000ff")
 
       subject.convert_color_to_hex("blue")
 
-      expect(subject.color_hex).to eq "0000ff"
+      expect(subject.color_hex).to eq "#0000ff"
     end
   end
 
   describe "#send_device_color" do
     it "calls the color device function" do
       subject.device_name = "dev"
-      subject.color_hex = "0000ff"
+      subject.color_hex = "#0000ff"
       device = double
       expect(api).to receive(:device).with("dev").and_return(device)
-      expect(device).to receive(:function).with("color", "0000ff")
+      expect(device).to receive(:function).with("color", "#0000ff")
 
       subject.send_device_color
     end

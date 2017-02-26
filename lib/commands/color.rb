@@ -3,7 +3,7 @@ require "color"
 
 module Commands
   class Color < Base
-    DEFAULT_COLOR = "ffffff"
+    DEFAULT_COLOR = "#ffffff"
     attr_accessor :access_token, :device_name, :color_hex
 
     def run(color)
@@ -44,7 +44,7 @@ module Commands
     def color_hex_from_name(name)
       found = ::Color::CSS[name]
       return DEFAULT_COLOR if found.nil?
-      found.hex
+      found.html
     end
 
     def send_device_color
