@@ -5,24 +5,30 @@ require "commands/color"
 require "commands/rainbow"
 
 class CLI < Thor
-  #def initialize(commands = {})
-  #  @commands = @commands
-  #end
-  #attr_reader :commands
+  COMMANDS = {
+    configure: Commands::Configure,
+    color: Commands::Color,
+    rainbow: Commands::Rainbow
+  }
+  def initialize(args = [], local_options = {}, config = {})
+    @commands = config.delete(:commands) { COMMANDS }
+    super
+  end
+  attr_reader :commands
 
   desc "configure", "Configure your Particle button"
   def configure
-    Commands::Configure.new.run
+    commands[:configure].new.run
   end
 
   desc "color COLOR", "Turn on lights this color"
   def color(name)
-    Commands::Color.new.run(name)
+    commands[:color].new.run(name)
   end
 
   desc "rainbow", "Make lights rainbow"
   def rainbow
-    puts rainbow
+    commands[:rainbow].new.run
   end
 
   desc "version", "Show the program version"
