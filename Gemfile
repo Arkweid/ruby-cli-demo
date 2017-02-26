@@ -3,9 +3,11 @@ source "https://rubygems.org"
 
 gem "thor"
 gem "tty-prompt"
+gem "tty-spinner"
 gem "particlerb"
 
 group :test do
   gem "rspec"
   gem "aruba"
+  gem "vcr"
 end

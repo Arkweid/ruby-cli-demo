@@ -4,9 +4,9 @@ require "tempfile"
 RSpec.describe Settings do
   describe "#default_filename" do
     it "is a file" do
-      expected = '~/.button-cli.yaml'
+      expected = "~/.button-cli.yaml"
 
-      actual = Settings.new.default_filename
+      actual = described_class.new.default_filename
 
       expect(File.expand_path(actual)).to eq(File.expand_path(expected))
     end
@@ -16,12 +16,12 @@ RSpec.describe Settings do
     it "is set from the constructor" do
       path = "/tmp/settings.yaml"
 
-      settings = Settings.new(path)
+      settings = described_class.new(path)
 
       expect(settings.filename).to eq path
     end
     it "uses default_filename when no constructor parameter is passed" do
-      settings = Settings.new
+      settings = described_class.new
 
       expect(settings.filename).to eq settings.default_filename
     end
@@ -29,7 +29,7 @@ RSpec.describe Settings do
 
   describe "#[]" do
     it "accesses values" do
-      settings = Settings.new
+      settings = described_class.new
 
       settings[:foo] = "bar"
 
@@ -39,7 +39,7 @@ RSpec.describe Settings do
 
   describe "#load" do
     it "loads from the file" do
-      Tempfile.open('settings.yaml') do |f|
+      Tempfile.open("settings.yaml") do |f|
         f.write [
           "---",
           "token: XXXXXXXXXXXXXXXX",
@@ -47,7 +47,7 @@ RSpec.describe Settings do
           ""
         ].join("\n")
         f.close
-        settings = Settings.new(f.path)
+        settings = described_class.new(f.path)
 
         settings.load
 
@@ -57,15 +57,15 @@ RSpec.describe Settings do
     end
 
     it "doesn't crash when the file is missing" do
-      settings = Settings.new("/missing")
+      settings = described_class.new("/missing")
       expect { settings.load }.not_to raise_error
     end
   end
 
   describe "#save" do
     it "saves the file" do
-      Tempfile.open('settings.yaml') do |f|
-        settings = Settings.new(f.path)
+      Tempfile.open("settings.yaml") do |f|
+        settings = described_class.new(f.path)
         settings[:token] = "XXXXXXXXXXXXXXXX"
         settings[:device] = "button"
 

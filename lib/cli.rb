@@ -12,7 +12,7 @@ class CLI < Thor
 
   desc "configure", "Configure your Particle button"
   def configure
-    puts "configure"
+    Commands::Configure.new.run
   end
 
   desc "color COLOR", "Turn on lights this color"

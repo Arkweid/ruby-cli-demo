@@ -62,6 +62,8 @@ GEM
       pastel (~> 0.7.0)
       tty-cursor (~> 0.3.0)
       wisper (~> 1.6.1)
+    tty-spinner (0.4.1)
+    vcr (3.0.3)
     wisper (1.6.1)
 
 PLATFORMS
@@ -73,6 +75,8 @@ DEPENDENCIES
   rspec
   thor
   tty-prompt
+  tty-spinner
+  vcr
 
 BUNDLED WITH
    1.10.6
