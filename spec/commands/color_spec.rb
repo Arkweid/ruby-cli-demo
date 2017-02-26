@@ -9,15 +9,10 @@ RSpec.describe Commands::Color do
   let(:api) { double }
 
   describe "#load_settings" do
-    it "loads" do
-      expect(settings).to receive(:load)
-
-      subject.load_settings
-    end
-
     it "sets the instance variables" do
       settings[:access_token] = "XXXXXXXXXXXXXXXX"
       settings[:device] = "dev"
+      expect(settings).to receive(:load)
 
       subject.load_settings
 

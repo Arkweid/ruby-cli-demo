@@ -14,8 +14,8 @@ class UI
     end
   end
 
-  def with_spinner(&block)
-    s = TTY::Spinner.new
+  def with_spinner(message = "", &block)
+    s = TTY::Spinner.new(":spinner #{message}", format: :arrow_pulse)
     s.run(&block)
   end
 

@@ -10,7 +10,7 @@ module Commands
     def run
       greet
       ask_login
-      ui.with_spinner do
+      ui.with_spinner "Logging in" do
         perform_login
         get_devices
       end

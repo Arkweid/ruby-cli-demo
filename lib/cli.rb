@@ -17,7 +17,7 @@ class CLI < Thor
 
   desc "color COLOR", "Turn on lights this color"
   def color(name)
-    puts "color #{name}"
+    Commands::Color.new.run(name)
   end
 
   desc "rainbow", "Make lights rainbow"
