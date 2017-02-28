@@ -1,3 +1,6 @@
 spec/examples.txt
 *.bin
 .env
+dist/
+packaging/*.tar.gz
+packaging/vendor/

@@ -1,1 +1,2 @@
-CLI_VERSION = '0.0.1'
+PACKAGE_NAME = 'button'
+VERSION = '0.0.1'

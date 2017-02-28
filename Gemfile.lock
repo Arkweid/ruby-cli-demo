@@ -87,5 +87,8 @@ DEPENDENCIES
   tty-spinner (~> 0.4.1)
   vcr (~> 3.0.3)
 
+RUBY VERSION
+   ruby 2.2.2p95
+
 BUNDLED WITH
-   1.10.6
+   1.14.5
