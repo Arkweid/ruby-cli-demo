@@ -1,7 +1,4 @@
-require "settings"
 require "commands/base"
-require "ui"
-require "particlerb"
 
 module Commands
   class Configure < Base

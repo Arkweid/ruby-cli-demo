@@ -1,3 +1,7 @@
+require "settings"
+require "ui"
+require "particlerb"
+
 module Commands
   class Base
     def initialize(settings: Settings.new, ui: UI.new, api: Particle)
