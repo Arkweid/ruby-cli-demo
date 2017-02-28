@@ -37,7 +37,7 @@ module Commands
     end
 
     def select_device
-      names = devices.map { |d| d.name }
+      names = devices.map { |d| d.name }.sort
       self.device_name = ui.select("Which device is in the button?", names)
     end
 
