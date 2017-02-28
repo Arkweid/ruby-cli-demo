@@ -21,7 +21,6 @@ end
 
 RSpec::Matchers.define :have_interactive_stdout do |expected|
   match do |actual|
-    @output.ioflush
     @actual = sanitize_text(actual.stdout)
     puts @actual
 
